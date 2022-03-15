@@ -43,16 +43,16 @@ image
 mysql> show processlist;  
 ```
 
-1.3.2.2 SQL层 （重点）
+1.3.2.2 SQL层 （重点）   # SQL（Structure Query Language）结构化查询语言
 
 ```undefined
 （1）接收上层传送的SQL语句
 （2）语法验证模块：验证语句语法,是否满足SQL_MODE
 （3）语义检查：判断SQL语句的类型
-DDL ：数据定义语言
-DCL ：数据控制语言
-DML ：数据操作语言
-DQL： 数据查询语言
+DDL ：数据定义语言    # data definition language
+DCL ：数据控制语言    # data control  language
+DML ：数据操作语言    # Data manipulation language
+DQL： 数据查询语言    # data query language
 ...
 （4）权限检查：用户对库表有没有权限
 （5）解析器：对语句执行前,进行预处理，生成解析树(执行计划),说白了就是生成多种执行方案.
@@ -323,16 +323,12 @@ mysqld_safe和mysqld一般是在临时维护时使用。
 
 ### 2.4.0 作用
 
-
-
 ```undefined
 控制MySQL的启动
 影响到客户端的连接
 ```
 
 ### 2.4.1 初始化配置的方法
-
-
 
 ```undefined
 预编译
@@ -344,8 +340,6 @@ mysqld_safe和mysqld一般是在临时维护时使用。
 
 初始化配置文件的默认读取路径
 
-
-
 ```bash
 [root@db01 ~]# mysqld --help --verbose |grep my.cnf
 /etc/my.cnf /etc/mysql/my.cnf /usr/local/mysql/etc/my.cnf ~/.my.cnf
@@ -355,8 +349,6 @@ mysqld_safe和mysqld一般是在临时维护时使用。
 ```
 
 配置文件的书写方式:
-
-
 
 ```csharp
 [标签]
@@ -385,22 +377,18 @@ port=3306
 log_error=/data/mysql/mysql.log
 [mysql]
 socket=/tmp/mysql.sock
-prompt=Master [\\d]>
+prompt=Master [\\d]>   # 控制登陆之后提示符标签显示所在位置
 ```
 
 ## 2.5 多实例的应用
 
 ### 2.5.1 准备多个目录
 
-
-
 ```kotlin
 mkdir -p /data/330{7,8,9}/data
 ```
 
 ### 2.5.2 准备配置文件
-
-
 
 ```jsx
 cat > /data/3307/my.cnf <<EOF
@@ -439,8 +427,6 @@ EOF
 
 ### 2.5.3 初始化三套数据
 
-
-
 ```jsx
 mv /etc/my.cnf /etc/my.cnf.bak
 mysqld --initialize-insecure  --user=mysql --datadir=/data/3307/data --basedir=/app/mysql
@@ -449,8 +435,6 @@ mysqld --initialize-insecure  --user=mysql --datadir=/data/3309/data --basedir=/
 ```
 
 ### 2.5.4 systemd管理多实例
-
-
 
 ```ruby
 cd /etc/systemd/system
@@ -468,15 +452,11 @@ ExecStart=/app/mysql/bin/mysqld  --defaults-file=/data/3309/my.cnf
 
 ### 2.5.5 授权
 
-
-
 ```kotlin
 chown -R mysql.mysql /data/*
 ```
 
-### 2.5.6 启动
-
-
+### 2.5.6 启动 
 
 ```css
 systemctl start mysqld3307.service
@@ -485,8 +465,6 @@ systemctl start mysqld3309.service
 ```
 
 ### 2.5.7 验证多实例
-
-
 
 ```kotlin
 netstat -lnp|grep 330

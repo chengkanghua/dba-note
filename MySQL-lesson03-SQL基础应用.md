@@ -1,7 +1,5 @@
 # 1、SQL介绍
 
-
-
 ```css
 结构化查询语言
 5.7 以后符合SQL92严格模式
@@ -9,8 +7,6 @@
 ```
 
 # 2、常用SQL分类
-
-
 
 ```undefined
 DDL：数据定义语言
@@ -25,8 +21,6 @@ DQL：数据的查询语言
 
 ### 3.1.1 作用
 
-
-
 ```undefined
 保证数据的准确性和标准性。
 ```
@@ -39,10 +33,6 @@ DQL：数据的查询语言
 
 image
 
-
-
-
-
 ```cpp
 tinyint  ： -128~127
 int       ：-2^31~2^31-1
@@ -54,8 +44,6 @@ int       ：-2^31~2^31-1
 ![img](assets/16956686-599be7ba0c7040a9.png)
 
 image
-
-
 
 ```csharp
 char(11) ：
@@ -107,8 +95,6 @@ image
 
 ### 3.2.1 列属性
 
-
-
 ```cpp
 约束(一般建表时添加):
 **primary key** ：主键约束
@@ -132,8 +118,6 @@ image
 
 ### 3.2.2 表的属性
 
-
-
 ```undefined
 存储引擎:
 InnoDB（默认的）
@@ -146,16 +130,12 @@ utf8mb4
 
 ### 3.3.1 字符集
 
-
-
 ```undefined
 utf8       
 utf8mb4
 ```
 
 ### 3.3.2 校对规则（排序规则）
-
-
 
 ```undefined
 大小写是否敏感
@@ -171,26 +151,23 @@ utf8mb4
 
 ### 4.2.1 创建数据库
 
-
-
 ```dart
 create database school;
 create schema sch;
-show charset;
-show collation;
+show charset;    #查看数据支持的字符集
+show collation;  #查看所有字符集支持的校对规则  后面_ci是大小不敏感，  后面_bin大小写敏感
 CREATE DATABASE test CHARSET utf8;
-create database xyz charset utf8mb4 collate utf8mb4_bin;
+create database xyz charset utf8mb4 collate utf8mb4_bin; #创建xyz库字符集utf8mb4校验规则大小敏感
 
 建库规范：
 1.库名不能有大写字母   
 2.建库要加字符集         
 3.库名不能有数字开头
-4. 库名要和业务相关
+4.库名要和业务相关
+    
 ```
 
 建库标准语句
-
-
 
 ```dart
 mysql> create database db charset utf8mb4;
@@ -199,15 +176,11 @@ mysql> show create database xuexiao;
 
 ### 4.2.2 删除(生产中禁止使用)
 
-
-
 ```rust
 mysql> drop database oldboy;
 ```
 
 ### 4.2.3 修改
-
-
 
 ```undefined
 SHOW CREATE DATABASE school;
@@ -216,8 +189,6 @@ ALTER DATABASE school  CHARSET utf8;
 ```
 
 ### 4.2.4 查询库相关信息（DQL）
-
-
 
 ```dart
 show databases；
@@ -228,8 +199,6 @@ show create database oldboy；
 
 ### 4.3.1 创建
 
-
-
 ```undefined
 create table stu(
 列1  属性（数据类型、约束、其他属性） ，
@@ -239,8 +208,6 @@ create table stu(
 ```
 
 ### 4.3.2 建表
-
-
 
 ```php
 USE school;
@@ -270,8 +237,6 @@ intime  TIMESTAMP NOT NULL DEFAULT NOW() COMMENT '入学时间'
 
 ### 4.3.2 删除(生产中禁用命令)
 
-
-
 ```rust
 drop table t1;
 ```
@@ -280,8 +245,6 @@ drop table t1;
 
 1.  在stu表中添加qq列
 
-
-
 ```php
 DESC stu;
 ALTER TABLE stu ADD qq VARCHAR(20) NOT NULL UNIQUE COMMENT 'qq号';
@@ -289,15 +252,11 @@ ALTER TABLE stu ADD qq VARCHAR(20) NOT NULL UNIQUE COMMENT 'qq号';
 
 1.  在sname后加微信列
 
-
-
 ```php
 ALTER TABLE stu ADD wechat VARCHAR(64) NOT NULL UNIQUE  COMMENT '微信号' AFTER sname ;
 ```
 
 1.  在id列前加一个新列num
-
-
 
 ```dart
 ALTER TABLE stu ADD num INT NOT NULL COMMENT '数字' FIRST;
@@ -305,8 +264,6 @@ DESC stu;
 ```
 
 1.  把刚才添加的列都删掉(危险)
-
-
 
 ```dart
 ALTER TABLE stu DROP num;
@@ -316,24 +273,29 @@ ALTER TABLE stu DROP wechat;
 
 1.  修改sname数据类型的属性
 
-
-
 ```cpp
 ALTER TABLE stu MODIFY sname VARCHAR(128)  NOT NULL ;
 ```
 
 1.  将sgender 改为 sg  数据类型改为 CHAR 类型
 
-
-
 ```php
 ALTER TABLE stu CHANGE sgender sg CHAR(1) NOT NULL DEFAULT 'n' ;
 DESC stu;
+
 ```
 
+扩展： 修改表名
+
+```bash
+rename table 旧表名 to 新表名;
+
+alter table 表名 drop primary key;  # 删除主键
+```
+
+
+
 ### 4.3.4 表属性查询（DQL）
-
-
 
 ```dart
 use school
@@ -344,8 +306,6 @@ CREATE TABLE ceshi LIKE stu;
 ```
 
 # 5. DCL应用 ****
-
-
 
 ```undefined
 grant 
@@ -363,8 +323,6 @@ revoke
 ```
 
 ## 6.2 insert
-
-
 
 ```csharp
 --- 最标准的insert语句
@@ -390,8 +348,6 @@ SELECT * FROM stu;
 
 ## 6.3 update
 
-
-
 ```bash
 DESC stu;
 SELECT * FROM stu;
@@ -401,15 +357,11 @@ UPDATE stu SET sname='zhao4' WHERE id=2;
 
 ## 6.4 delete（危险！！）
 
-
-
 ```objectivec
 DELETE FROM stu  WHERE id=3;
 ```
 
 全表删除:
-
-
 
 ```cpp
 DELETE FROM stu
@@ -420,8 +372,6 @@ truncate: DDL操作,对与表段中的数据页进行清空,速度快.
 ```
 
 伪删除：用update来替代delete，最终保证业务中查不到（select）即可
-
-
 
 ```objectivec
 1.添加状态列
@@ -437,8 +387,6 @@ SELECT * FROM stu WHERE state=1;
 
 ## 7.1 单独使用
 
-
-
 ```css
 -- select @@xxx 查看系统参数
 SELECT @@port;
@@ -446,11 +394,12 @@ SELECT @@basedir;
 SELECT @@datadir;
 SELECT @@socket;
 SELECT @@server_id;
+
+SELECT @@innodb_flush_log_at_trx_commit;  # 复杂的语句记不住可以用下面show语句过滤查询
+SHOW VARIABLES LIKE 'innodb%';
 ```
 
--- select 函数();
-
-
+-- select 函数();  
 
 ```csharp
 SELECT NOW();
@@ -464,8 +413,6 @@ https://dev.mysql.com/doc/refman/5.7/en/func-op-summary-ref.html?tdsourcetag=s_p
 
 ## 7.2 单表子句-from
 
-
-
 ```undefined
 SELECT 列1,列2 FROM 表
 SELECT  *  FROM 表
@@ -474,15 +421,11 @@ SELECT  *  FROM 表
 例子:
  -- 查询stu中所有的数据(不要对大表进行操作)
 
-
-
 ```undefined
 SELECT * FROM stu ;
 ```
 
 -- 查询stu表中,学生姓名和入学时间
-
-
 
 ```undefined
 SELECT sname , intime FROM stu;
@@ -490,8 +433,6 @@ SELECT sname , intime FROM stu;
 
 =====================
  oldguo带大家学单词：
-
-
 
 ```dart
 world            ===>世界
@@ -515,8 +456,6 @@ SELECT * FROM city WHERE id<10;
 
 ## 7.3 单表子句-where
 
-
-
 ```undefined
 SELECT col1,col2 FROM TABLE WHERE colN 条件;
 ```
@@ -526,23 +465,17 @@ SELECT col1,col2 FROM TABLE WHERE colN 条件;
 例子:
  -- 查询中国(CHN)所有城市信息
 
-
-
 ```bash
 SELECT * FROM city WHERE countrycode='CHN';
 ```
 
 -- 查询北京市的信息
 
-
-
 ```bash
 SELECT * FROM city WHERE NAME='peking';
 ```
 
 -- 查询甘肃省所有城市信息
-
-
 
 ```bash
 SELECT * FROM city WHERE district='gansu';
@@ -553,8 +486,6 @@ SELECT * FROM city WHERE district='gansu';
 例子:
  -- 查询世界上少于100人的城市
 
-
-
 ```undefined
 SELECT * FROM city WHERE population<100;
 ```
@@ -564,15 +495,11 @@ SELECT * FROM city WHERE population<100;
 例子:
  -- 中国人口数量大于500w
 
-
-
 ```bash
 SELECT * FROM city WHERE countrycode='CHN' AND population>5000000;
 ```
 
 -- 中国或美国城市信息
-
-
 
 ```bash
 SELECT * FROM city WHERE countrycode='CHN' OR countrycode='USA';
@@ -583,8 +510,6 @@ SELECT * FROM city WHERE countrycode='CHN' OR countrycode='USA';
 例子:
  -- 查询省的名字前面带guang开头的
 
-
-
 ```ruby
 SELECT * FROM city WHERE district LIKE 'guang%';    
 注意:%不能放在前面,因为不走索引.
@@ -593,8 +518,6 @@ SELECT * FROM city WHERE district LIKE 'guang%';
 ### 7.3.5 where配合in语句
 
 -- 中国或美国城市信息
-
-
 
 ```csharp
 SELECT * FROM city WHERE countrycode IN ('CHN' ,'USA');
@@ -605,8 +528,6 @@ SELECT * FROM city WHERE countrycode IN ('CHN' ,'USA');
 例子:
  -- 查询世界上人口数量大于100w小于200w的城市信息
 
-
-
 ```undefined
 SELECT * FROM city  WHERE population >1000000 AND population <2000000;
 SELECT * FROM city  WHERE population BETWEEN 1000000 AND 2000000;
@@ -616,15 +537,11 @@ SELECT * FROM city  WHERE population BETWEEN 1000000 AND 2000000;
 
 ### 7.4.1 作用
 
-
-
 ```csharp
 根据 by后面的条件进行分组，方便统计，by后面跟一个列或多个列
 ```
 
 ### 7.4.2 常用聚合函数
-
-
 
 ```swift
 **max()**      ：最大值
@@ -639,16 +556,12 @@ group_concat() : 列转行
 
 例子1：统计世界上每个国家的总人口数.
 
-
-
 ```php
 USE world
-SELECT countrycode ,SUM(population)    FROM  city  GROUP BY countrycode;
+SELECT countrycode ,SUM(population) FROM  city  GROUP BY countrycode;
 ```
 
 例子2： 统计中国各个省的总人口数量(练习)
-
-
 
 ```bash
 SELECT district,SUM(Population) FROM city  WHERE countrycode='chn' GROUP BY district;
@@ -656,23 +569,21 @@ SELECT district,SUM(Population) FROM city  WHERE countrycode='chn' GROUP BY dist
 
 例子3：统计世界上每个国家的城市数量(练习)
 
-
-
 ```objectivec
 SELECT countrycode,COUNT(id)  FROM city GROUP BY countrycode;
 ```
 
 ## 7.5 having
 
-
-
 ```csharp
 where|group|having
+    
+# group by 之后再进一次过滤条件， 只能用having
+# 注意： having条件是不走索引的。一般可以用临时表解决。
+    
 ```
 
 例子4：统计中国每个省的总人口数，只打印总人口数小于100
-
-
 
 ```csharp
 SELECT district,SUM(Population)
@@ -686,8 +597,6 @@ HAVING SUM(Population) < 1000000 ;
 
 ### 7.6.1 作用
 
-
-
 ```csharp
 实现先排序，by后添加条件列
 ```
@@ -696,15 +605,11 @@ HAVING SUM(Population) < 1000000 ;
 
 1.  查看中国所有的城市，并按人口数进行排序(从大到小)
 
-
-
 ```bash
 SELECT * FROM city WHERE countrycode='CHN' ORDER BY population DESC;
 ```
 
 1.  统计中国各个省的总人口数量，按照总人口从大到小排序
-
-
 
 ```php
 SELECT district AS 省 ,SUM(Population) AS 总人口
@@ -716,8 +621,6 @@ ORDER BY 总人口 DESC ;
 
 1.  统计中国,每个省的总人口,找出总人口大于500w的,并按总人口从大到小排序,只显示前三名
 
-
-
 ```csharp
 SELECT  district, SUM(population)  FROM  city 
 WHERE countrycode='CHN'
@@ -728,6 +631,7 @@ LIMIT 3 ;
 
 LIMIT N ,M --->跳过N,显示一共M行
 LIMIT 5,5
+LIMIT M OFFSET N  -->显示M行， 跳过N行    
 
 SELECT  district, SUM(population)  FROM  city 
 WHERE countrycode='CHN'
@@ -739,16 +643,12 @@ LIMIT 5,5;
 
 ## 7.7 distinct：去重复
 
-
-
 ```cpp
 SELECT countrycode FROM city ;
 SELECT DISTINCT(countrycode) FROM city  ;
 ```
 
 ## 7.8 联合查询- union all
-
-
 
 ```csharp
 -- 中国或美国城市信息
@@ -770,8 +670,6 @@ UNION ALL 不去重复
 ### 7.9.0 案例准备
 
 按需求创建一下表结构:
-
-
 
 ```php
 use school
@@ -893,8 +791,6 @@ image
 
 查询张三的家庭住址
 
-
-
 ```bash
 SELECT A.name,B.address FROM
 A JOIN  B
@@ -906,8 +802,6 @@ WHERE A.name='zhangsan'
 
 1.  查询一下世界上人口数量小于100人的城市名和国家名
 
-
-
 ```php
 SELECT b.name ,a.name ,a.population
 FROM  city  AS a
@@ -918,8 +812,6 @@ WHERE  a.Population<100
 
 1.  查询城市shenyang，城市人口，所在国家名（name）及国土面积（SurfaceArea）
 
-
-
 ```php
 SELECT a.name,a.population,b.name ,b.SurfaceArea
 FROM city  AS a JOIN country AS b
@@ -928,8 +820,6 @@ WHERE a.name='shenyang';
 ```
 
 ### 7.9.3 别名
-
-
 
 ```php
 列别名,表别名
@@ -940,14 +830,12 @@ b.SurfaceArea AS bs,
 a.Population AS bp
 FROM city AS a  JOIN country AS b
 ON a.CountryCode=b.Code
-WHERE a.name ='shenyang';
+WHERE a.name ='shenyang'; 
 ```
 
 ### 7.9.4 多表SQL练习题
 
 1.  统计zhang3,学习了几门课
-
-
 
 ```php
 SELECT st.sname , COUNT(sc.cno)
@@ -1010,8 +898,6 @@ ORDER BY AVG(sc.score) DESC ;
 ```
 
 1.  查询oldguo所教的不及格的学生姓名
-
-
 
 ```php
 SELECT te.tname,st.sname,sc.score
