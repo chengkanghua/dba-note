@@ -243,6 +243,7 @@ Percona:
 ### 5.2. 解压并改名为mysql
 
 ```ruby
+wget https://downloads.mysql.com/archives/get/p/23/file/mysql-5.7.20-linux-glibc2.12-x86_64.tar.gz
 [root@db01 app]# tar zxvf mysql-5.7.20-linux-glibc2.12-x86_64.tar.gz -C ./
 [root@db01 app]# mv mysql-5.7.20-linux-glibc2.12-x86_64 mysql
 [root@db01 app]# ls -l /app/mysql/
