@@ -1,6 +1,6 @@
 # 1. 多源复制架构
 
-![img](MySQL Multi-Source Replication.assets/webp-167064067351016.webp)
+![img](MySQL-Multi-Source-Replication.assets/webp-167064067351016.webp)
 
 image.png
 

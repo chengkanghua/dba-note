@@ -8,7 +8,7 @@
 启动克隆操作的MySQL服务器实例中的数据，克隆到同服务器或同节点上的一个目录里
 ```
 
-![img](MySQL 8017+版本的clone-plugin 应用.assets/webp-167064062038612.webp)
+![img](MySQL8017+版本的clone-plugin应用.assets/webp-167064062038612.webp)
 
 image.png
 
@@ -21,7 +21,7 @@ image.png
 您也可以将数据克隆到接受者的其他目录，以避免删除现有数据。(可选)
 ```
 
-![img](MySQL 8017+版本的clone-plugin 应用.assets/webp-16706406135779.webp)
+![img](MySQL8017+版本的clone-plugin应用.assets/webp-16706406135779.webp)
 
 image.png
 
