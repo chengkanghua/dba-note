@@ -78,7 +78,7 @@
 
 # 8. 启动报错
 
-![img](MySQL十万个为什么(未完待续).assets/webp-1670640087238116.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-1670640087238116.webp)
 
 image
 
@@ -90,7 +90,7 @@ image
 
 # 9.报错
 
-![img](MySQL十万个为什么(未完待续).assets/webp-1670640081062113.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-1670640081062113.webp)
 
 image
 
@@ -110,7 +110,7 @@ image
 
 # 11.报错
 
-![img](MySQL十万个为什么(未完待续).assets/webp-1670640073822110.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-1670640073822110.webp)
 
 image
 
@@ -185,7 +185,7 @@ prompt=Master [\\d]>
 
 # 17.报错
 
-![img](MySQL十万个为什么(未完待续).assets/webp-1670640057754107.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-1670640057754107.webp)
 
 image
 
@@ -258,7 +258,7 @@ sql_mode=only_full_group_by
 否则group by语句会报错
 ```
 
-![img](MySQL十万个为什么(未完待续).assets/webp-1670640045483104.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-1670640045483104.webp)
 
 image
 
@@ -292,13 +292,13 @@ image
 
 # 27. SQL面试题
 
-![img](MySQL十万个为什么(未完待续).assets/webp-1670640027853101.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-1670640027853101.webp)
 
 image
 
 
 
-![img](MySQL十万个为什么(未完待续).assets/webp-167064001999698.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-167064001999698.webp)
 
 image
 
@@ -311,7 +311,7 @@ on e.emp_id=c.emp_id
 where e.dept_name='技术部';
 ```
 
-![img](MySQL十万个为什么(未完待续).assets/webp-167064001096595.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-167064001096595.webp)
 
 image
 
@@ -327,7 +327,7 @@ on c.course_id=t.course_id
 where c.score>=60
 ```
 
-![img](MySQL十万个为什么(未完待续).assets/webp-167064000387192.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-167064000387192.webp)
 
 image
 
@@ -353,7 +353,7 @@ on c.course_id=t.corse_id
 where t.tea_name='张三'
 ```
 
-![img](MySQL十万个为什么(未完待续).assets/webp-167063999515489.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-167063999515489.webp)
 
 image
 
@@ -371,7 +371,7 @@ order by t.course_name, c.score desc
 limit 3
 ```
 
-![img](MySQL十万个为什么(未完待续).assets/webp-167063995958580.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-167063995958580.webp)
 
 image
 
@@ -391,7 +391,7 @@ having count(t.course_name)>1
 
 # 28 . 报错原因是什么?
 
-![img](MySQL十万个为什么(未完待续).assets/webp-167063995261077.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-167063995261077.webp)
 
 image
 
@@ -430,7 +430,7 @@ image
 
 # 31.面试题
 
-![img](MySQL十万个为什么(未完待续).assets/webp-167063993716674.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-167063993716674.webp)
 
 image
 
@@ -441,7 +441,7 @@ image
 2. 查询条件调整  where status   and signal 
 ```
 
-![img](MySQL十万个为什么(未完待续).assets/webp-167063993071171.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-167063993071171.webp)
 
 image
 
@@ -451,7 +451,7 @@ image
 数据和类型 ，not null   ，注释 
 ```
 
-![img](MySQL十万个为什么(未完待续).assets/webp-167063992432168.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-167063992432168.webp)
 
 image
 
@@ -463,11 +463,11 @@ SQL语句是数据DDL操作，是属于列的添加操作
 所以我们推荐使用 pt-osc 工具来进行online DDL,减少对业务的影响
 ```
 
-![img](MySQL十万个为什么(未完待续).assets/webp-167063991708765.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-167063991708765.webp)
 
 image
 
-![img](MySQL十万个为什么(未完待续).assets/webp-167063991054962.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-167063991054962.webp)
 
 image
 
@@ -482,7 +482,7 @@ B-》A架构转换
 
 # 32.报错
 
-![img](MySQL十万个为什么(未完待续).assets/webp-167063989841259.webp)
+![img](MySQL十万个为什么-未完待续.assets/webp-167063989841259.webp)
 
 image.png
 
